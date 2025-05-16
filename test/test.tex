@@ -1,0 +1,49 @@
+% !TeX program = platex
+\documentclass[dvipdfmx]{jarticle}
+
+\usepackage{graphicx}     % 画像挿入
+\usepackage{amsmath,amssymb,bm}  % 数式関連
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+
+\usepackage{url}          % URL整形
+\usepackage{here}         % 図表の強制位置指定 [H]
+
+\setlength{\topmargin}{-15mm}
+\setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{240mm}
+
+\title{pLaTeX ＋ jarticle テスト}
+\author{あなたの名前}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+これは \texttt{jarticle} クラスを使った pLaTeX 文書です。
+
+\section{はじめに}
+
+ここでは日本語を正しく扱えます。
+
+\begin{equation}
+    E = mc^2
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \caption{サンプル図}
+    \label{fig:sample}
+\end{figure}
+
+\bibliographystyle{jplain}
+\bibliography{ref}
+
+\end{document}

@@ -1,0 +1,25 @@
+# LaTeX intermediate files
+*.aux
+*.log
+*.synctex.gz
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+
+# Compiled LaTeX files
+*.dvi
+
+# Editor and IDE temporary files
+.vscode/
+*.vscode/
+*.vscode-server/
+
+# macOS specific files
+.DS_Store
+
+# LaTeX build directories
+_build/
+tmp/
