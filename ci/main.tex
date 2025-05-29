@@ -1,0 +1,32 @@
+\documentclass[dvipdfmx]{jarticle}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage[a4paper, margin=25mm]{geometry}
+\usepackage{subfiles}
+
+% タイトル見出し用に titlesec を追加
+\usepackage{titlesec}
+
+% --- 見出し設定 ---
+\titleformat{\section}{\rmfamily\Large\mdseries}{\thesection}{1em}{} 
+\titleformat{\subsection}{\rmfamily\normalsize\mdseries}{\thesubsubsection}{1em}{} 
+\titleformat{\subsubsection}{\rmfamily\normalsize\mdseries}{\thesubsubsection}{1em}{} 
+
+
+\begin{document}
+
+% 1ページ目
+\subfile{research_plan.tex}
+
+\clearpage
+
+% 2ページ目
+\subfile{activities.tex}
+
+\end{document}
