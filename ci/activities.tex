@@ -1,63 +1,101 @@
 \documentclass[dvipdfmx]{jsarticle}
 
-% --- 基本パッケージ ---
+% --- パッケージ ---
 \usepackage[dvipdfmx]{graphicx}
-\usepackage{amsmath,amssymb,amsfonts,amsthm}
-\usepackage{bm}
-\usepackage{float}
-\usepackage{multirow}
-\usepackage{hhline}
-\usepackage{diagbox}
-\usepackage{caption}
-\usepackage[subrefformat=parens]{subcaption}
-\captionsetup{compatibility=false}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage{colortbl}
-\usepackage{booktabs}
-\usepackage{siunitx}
-\usepackage{listings}
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{cite}
-\usepackage{setspace}
 \usepackage{indentfirst}
-\usepackage{subfiles}
 \usepackage{titlesec}
+\usepackage[top=5mm, bottom=7mm, left=13mm, right=13mm]{geometry} % さらに余白を狭く
+\pagestyle{empty}
+\usepackage{enumitem}
 
 % --- レイアウト設定 ---
-\setlength{\parindent}{1em} % 段落頭1字下げ
-\setlength{\parskip}{0pt}   % 段落間余白を詰める
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+
+% --- セクションタイトルの体裁 ---
+\titleformat{\section}
+  {\rmfamily\large\bfseries}{\thesection}{1em}{\bfseries}
+\titlespacing*{\section}{0pt}{0.5em}{0.2em}
+
+\titleformat{\subsection}
+  {\rmfamily\normalsize\bfseries}{\thesubsection}{1em}{\bfseries}
+\titlespacing*{\subsection}{0pt}{0.3em}{0.1em}
+
+\titleformat{\subsubsection}
+  {\rmfamily\normalsize\bfseries}{\thesubsubsection}{1em}{\bfseries}
+\titlespacing*{\subsubsection}{0pt}{0.2em}{0.05em}
+
+% --- タイトルを上に詰める ---
+\makeatletter
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\Large\bfseries \@title \par}
+    \vspace{0.1em}
+    {\normalsize \@author \par}
+  \end{center}
+  \vspace{-0.5em}
+}
+\makeatother
 
 \begin{document}
 
-\begin{center}
-    {\Large これまでの研究活動や大学の講義や演習で行った実践的な活動}\\[0.5em]
-    一瀬 遥希
-\end{center}
+\title{これまでの研究活動や大学の講義や演習で行った実践的な活動}
+\author{一瀬 遥希}
+\date{}
+\maketitle
 
-\section*{1. これまでの研究活動}
-学部時代の卒業研究や、その他取り組んだ研究活動について記述します。
+\section{現在行っている研究活動 （研究テーマ：偏見的統計データ説明文に対する対抗文生成）}
 
-\subsection*{1.1 研究テーマ名}
-研究のタイトル。
+\subsection{概要}
+現在行っている研究では, 先行研究\cite{zhang2022}で定義された「人間の本能を悪用した偏見的統計データ説明文」に着目している.
+これらの説明文に対し, VLMやLLMを活用することで, 偏見を是正し, 事実に基づいた客観的な情報を提供する対抗文（Counter-Narrative）を自動生成する手法の確立を目指している.
 
-\subsubsection*{概要}
-概要を記述します。
+\subsection{アプローチと研究内容}
+対抗文生成モデルの設計では, VLMを用いて統計グラフや画像から事実情報を抽出し, 先行研究での分類\cite{zhang2022,zhang2023}を基に説明文とデータの矛盾を客観的に特定する.
+その後, LLMに抽出した事実情報と偏見的説明文が悪用する本能（例：ギャップ本能）パターンを入力し,
+偏見を指摘しつつ客観的かつ中立的な言葉で統計データの全体像を提示する対抗文を生成するよう促す.
+生成された対抗文の評価には, 人間評価とLLMによる自動評価の両方を検討している.
 
-\subsubsection*{担当箇所・役割}
-ご自身が担当した箇所を明確にします。
+\subsection{期待される成果と自身の貢献}
+本研究は, 統計データに基づく誤解を自動で是正し, 正確な情報理解を促す対抗文生成システムの構築を目指している.
+これはデジタル時代の情報リテラシー向上とAI倫理への貢献が期待できる.
 
-\subsubsection*{成果・考察}
-成果や考察を記述します。
+\section{学内における実践的な活動}
 
-\section*{2. 大学の講義や演習で行った実践的な活動}
-創造情報学に関連する講義や演習のプロジェクト、制作物などを記述します。
+\subsection{プログラミングとデータ構造・アルゴリズムの実践, 機械学習とデータマイニングの演習}
+大学の講義および演習を通じて, プログラミングの基礎から応用まで幅広く学んだ. Python, Scheme, C言語を用いた演習では, データ構造やアルゴリズムを実装し, 効率的なコード設計と問題解決能力を養った. また, 大規模データセットを用いた機械学習モデルの構築演習では, ニューラルネットワークの基礎, 学習プロセス, 評価方法を実践的に学び, 気象データなど実データを用いたデータマイニング演習では, 前処理, 統計分析, 可視化を通じて有用な洞察を抽出するプロセスを経験した.
 
-\subsection*{2.1 活動名}
-活動の概要、目的、使用技術、成果などをまとめます。
+\subsection{低レベルプログラミングとシステムプログラミング}
+C言語およびアセンブリ言語を用いた簡易OSのチーム開発を経験した.
+メモリ管理, プロセス管理, ファイルシステムなどコンピュータシステムの基幹部分を実装することで, ハードウェアとソフトウェアの連携, システムの動作原理を深く理解した.
+この経験を通じて, システムの根幹を支える低レベルプログラミングの知識とスキル, チーム開発における役割分担やコードレビュー, バージョン管理の重要性など実践的なスキルを身につけた.
 
-\section*{研究計画（追加情報）}
-2ページ目に表示させる研究計画の補足などを記述します。
+\section{学外における実践的な活動}
 
+\subsection{データエンジニアカタパルトでの活動 (2023年8月～2024年2月)}
+約7ヶ月間, 福岡市が主催するデータエンジニアカタパルトに参加し, 実務に近い形でWebフレームワーク開発とデータ可視化技術を習得した.
+\begin{itemize}[itemsep=0pt,topsep=2pt,parsep=0pt,partopsep=0pt]
+    \item \textbf{Webアプリケーション開発}:
+          PHPのLaravelフレームワークを使用した講座を受講し, 実務で求められるWebアプリケーション開発の知識（MVCモデル, データベース連携, ルーティングなど）を体系的に習得した.
+          その後, 個人開発プロジェクトにおいて, GitHubを活用したバージョン管理の下, 効率的な開発手法を実践した.
+    \item \textbf{データ可視化とビジネスインテリジェンス}:
+          Looker Studioを用いたデータ可視化技術を習得し, 収集したデータや分析結果を効果的に可視化し, ビジネス上の意思決定に役立てるスキルを身につけた.
+    \item \textbf{企業課題への取り組み}:
+          最終フェーズでは, 企業のメンターの指導のもと, 実際の企業課題（個人輸出品に対する自国及び相手国の関連書類の検索）に対し, 目的としたプロダクトの開発に携わった.
+\end{itemize}
+
+\subsection{個人開発・Kaggleコンペティションへの参加}
+個人開発として, Pythonを用いた機械学習モデルの構築やReactを用いたWebアプリケーションの開発に取り組んでいる.
+また, Kaggleコンペティションにも参加し, 様々なデータセットを用いた予測モデルの構築や評価手法の実践を通じて, データサイエンスの実務的なスキルを磨いている.
+
+\begin{thebibliography}{99}
+    \bibitem{zhang2022}
+    K. Zhang, H. Shinden, T. Mutsuro, and E. Suzuki. Judging Instinct Exploitation in Statistical Data Explanations Based on Word Embedding. In \textit{Proc. AIES ’22}, pp. 867–879, 2022.
+
+    \bibitem{zhang2023}
+    K. Zhang and E. Suzuki. Judging Credible and Unethical Statistical Data Explanations via Phrase Similarity Graph. In \textit{Proc. 2023 Pacific Asia Conference on Information Systems (PACIS)}, 2023.
+\end{thebibliography}
 \end{document}
