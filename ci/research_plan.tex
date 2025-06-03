@@ -1,40 +1,101 @@
-\documentclass[main.tex]{subfiles}
+\documentclass[dvipdfmx]{jsarticle}
+
+% --- パッケージ ---
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage[top=10mm, bottom=12mm, left=13mm, right=13mm]{geometry} % さらに余白を狭く
+\pagestyle{empty}
+\usepackage{enumitem}
+
+% --- レイアウト設定 ---
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+
+% --- セクションタイトルの体裁 ---
+\titleformat{\section}
+  {\rmfamily\large\bfseries}{\thesection}{1em}{\bfseries}
+\titlespacing*{\section}{0pt}{0.5em}{0.2em}
+
+\titleformat{\subsection}
+  {\rmfamily\normalsize\bfseries}{\thesubsection}{1em}{\bfseries}
+\titlespacing*{\subsection}{0pt}{0.3em}{0.1em}
+
+\titleformat{\subsubsection}
+  {\rmfamily\normalsize\bfseries}{\thesubsubsection}{1em}{\bfseries}
+\titlespacing*{\subsubsection}{0pt}{0.2em}{0.05em}
+
+% --- タイトルを上に詰める ---
+\makeatletter
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\Large\bfseries \@title \par}
+    \vspace{0.1em}
+    {\normalsize \@author \par}
+  \end{center}
+  \vspace{-1.5em}
+}
+\makeatother
 
 \begin{document}
 
-\begin{center}
-    {\Large 志望分野・志望理由・入学後の研究計画}\\[1em]
-    九州大学工学部電気情報工学科計算機工学コース 4年\\
-    一瀬 遥希
-\end{center}
-\vspace{1.5em}
+\title{志望分野・志望理由・入学後の研究計画}
+\author{一瀬 遥希}
+\date{}
+\maketitle
 
-\section*{1. 志望分野}
-ここに志望分野を記述します。
-（例：インタラクションデザイン、人工知能応用、バーチャルリアリティ技術など）
+\section{志望分野}
+私の志望分野は, 計算機科学を基盤とした, 特に機械学習やコンピュータグラフィックスの分野である.
 
-\subsection*{1.1 分野の現状と課題（もしあれば）}
-その分野の現状や課題認識について触れると、より深みが増します。
+\section{志望理由}
+私がこの分野, またこの研究科を志望する理由は, これまでの学習や研究活動を通して, 機械学習の予測能力やコンピュータグラフィックスの応用技術が, 単なる理論に留まらず, 実世界の問題解決や新たな可能性の創出に大きく寄与することを実感し, 深い興味を感じたためである. さらに, 貴研究科は, 計算機科学の最先端の知見が集積し, 優れた学習・指導環境のもとで学際的な知識と技術を習得する環境が整っており, この理想的な環境で研究に専念し, 自身の専門性を高めたいと強く思ったためである.
 
-\section*{2. 志望理由}
-なぜ東京大学大学院情報理工学系研究科の創造情報学専攻を志望するのか。
-\begin{itemize}
-    \item これまでの学習や経験との関連
-    \item 興味がある教員とその理由
-    \item カリキュラムや研究環境の魅力
-\end{itemize}
+\section{入学後の研究計画（研究テーマ：物理情報に基づく少ないデータからの3D形状生成・設計）}
 
-\section*{3. 入学後の研究計画}
-\subsection*{3.1 研究の背景と目的}
-必要性、目的、解明したいこと等を具体的に。
+\subsection{研究目的}
+本研究の目的は, 物理情報に基づく少ないデータから3D形状を生成する手法を提案し, 設計者がリアルタイムで物理的フィードバックを受けながら形状を探索・修正できるインタラクティブな設計を可能にすることである.
 
-\subsection*{3.2 研究内容と手法}
-どのような手法で進めるか具体的に。
+\subsection{研究背景}
+従来の3D形状設計は, 専門知識や高コストな物理シミュレーションに依存してきた. AIによる3D形状生成も進展しているが, 大量のデータが必要で物理的妥当性が保証されない課題がある. また, 物理シミュレーションは高精度だが計算コストが高く, リアルタイム設計には不向きである.
 
-\subsection*{3.3 期待される成果と意義}
-得られる成果とその意義などをまとめる。
+近年, Physics-informed Neural Networks（PINNs）は物理法則を機械学習に組み込むことで, 少ないデータでも物理的整合性のある解を導けることが示されている\cite{Cuomo2022}.
+しかし, PINNの応用は主に物理場の予測や2Dメッシュ生成に限られており, 複雑な3D形状の生成やインタラクティブ設計支援への応用は十分に進んでいない\cite{Cuomo2022, Peng2023, Xu2024}.
+これらの背景から, 本研究は, PINNsの「データ効率性」と「物理的整合性保証」を最大限に活用し, 複雑な3D形状の生成とリアルタイム設計を実現する新たな手法の提案を目指す.
 
-\subsection*{3.4 年次計画（任意）}
-研究全体の大まかな進め方（例：修士2年間の計画）。
+\subsection{研究方法・計画}
+本研究は, 以下の3つの段階で進める.
 
+\begin{enumerate}[itemsep=0pt,topsep=2pt,parsep=0pt,partopsep=0pt]
+    \item {\rmfamily\normalsize\bfseries 物理情報付き3D形状生成モデルの基礎確立と概念実証}\\
+          先行研究（PINN, 3D形状表現, データ効率学習など）を調査し, 物理法則やPINNフレームワークの基礎技術を習得する. その後, シンプルな2Dまたは3D形状を対象に, 物理法則を損失関数に組み込んだPINNモデルを開発し, データなしや少量データで物理的に妥当な形状を生成・予測できるか検証する. Few-shot LearningやMeta-Learningなどの学習戦略も導入し, 有効性を評価する.
+
+    \item {\rmfamily\normalsize\bfseries 3D形状生成モデルの高度化とインタラクティブ機能の開発}\\
+          1で得られた知見をもとに, 複雑な3D形状を対象としたモデルへ拡張し, 剛性・変形予測が可能なモデルを実装する. 少ない学習データ条件でのデータ効率化手法を導入し, その有効性を評価する. あわせて, 生成形状と物理特性を可視化し, 設計者がパラメータを変更できるインタラクティブなUIの検討・開発を行う.
+
+    \item {\rmfamily\normalsize\bfseries インタラクティブ設計支援機能の確立と応用展開}\\
+          2で構築した基礎機能を発展させ, リアルタイム物理フィードバックや物理的制約下で最適な形状を探索・修正する機能を実装する. さらに, 強度・軽量化・製造容易性など複数の設計目標を考慮した多目的最適化の実現も目指す.
+\end{enumerate}
+
+\subsection{研究成果に期待されるもの}
+本研究により, データが少ない状況でも物理的に妥当な3D形状を自動生成できる新しい設計手法が確立される. これにより, 設計の試行錯誤サイクルが短縮され, 設計者の創造性を支援するインタラクティブな設計環境の実現が期待できる.
+
+\begin{thebibliography}{99}
+    \bibitem{Cuomo2022}
+    S. Cuomo, M. Di Donato, G. Giampaolo, et al.,
+    ``Scientific Machine Learning Through Physics-Informed Neural Networks: Where we are and What's Next,''
+    Journal of Scientific Computing, vol. 92, no. 88, pp. 1–62, 2022.
+
+    \bibitem{Peng2023}
+    B. Peng, Y. Zhang, Y. Chen, et al.,
+    ``Machine learning-enabled constrained multi-objective design of architected materials,''
+    Nature Communications, vol. 14, no. 6630, pp. 1–12, 2023.
+
+    \bibitem{Xu2024}
+    Q. Xu, Y. Wang, Z. Li, et al.,
+    ``Precise-Physics Driven Text-to-3D Generation,''
+    arXiv:2403.12438, 2024.
+\end{thebibliography}
 \end{document}
