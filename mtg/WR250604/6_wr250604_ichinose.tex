@@ -93,49 +93,48 @@ LLMが特定の偏見的説明文を生成するために, どの本能(例: 恐
 
 本フェーズでは, このSelectInstinctの「本能を選択する」というロジックを逆の視点から活用する. つまり, 偏見的説明文が,
 どの本能を悪用することでその偏見を生み出しているのかを分析・特定するために, SelectInstinctの判断基準や手続きを指針として用いる.
-
-\subsubsection{入力}
 \begin{itemize}
-  \item S : 対象数
-  \item T : 時間拡張の有無
-  \item V : 変数名
-  \item D : 統計データ
+  \item \textbf{入力}
+        \begin{itemize}
+          \item S : 対象数
+          \item T : 時間拡張の有無
+          \item V : 変数名
+          \item D : 統計データ
+        \end{itemize}
+  \item \textbf{出力}
+        \begin{itemize}
+          \item I : 偏見的説明文が悪用している可能性のある本能の集合
+        \end{itemize}
 \end{itemize}
-
-\subsubsection{出力}
-\begin{itemize}
-  \item I : 偏見的説明文が悪用している可能性のある本能の集合
-\end{itemize}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{フェーズ2: LLMによる戦略的対抗文生成}
 このフェーズでは, フェーズ1で特定した情報に基づき, LLMを用いて対抗的な説明文を生成する.
-
-\subsubsection{プロンプトの主要構成要素}
-LLMに与えるプロンプトは, 主に以下の要素で構成する.
+プロンプトの主要構成要素: LLMに与えるプロンプトは, 主に以下の要素で構成する。
 \begin{itemize}
-  \item \textbf{統計データ}
-  \item \textbf{偏見的説明文}
-  \item \textbf{悪用している可能性のある本能の集合I}
-  \item \textbf{対抗文生成のためのプロンプト:}
+  \item \textbf{入力}
         \begin{itemize}
-          \item ペルソナ設計
-          \item Chain-of-Thought (CoT)を促す指示
-          \item 出力形式の指定
+          \item \textbf{統計データ}
+          \item \textbf{偏見的説明文}
+          \item \textbf{悪用している可能性のある本能の集合I}
+          \item \textbf{対抗文生成のためのプロンプト:}
+                \begin{itemize}
+                  \item ペルソナ設計
+                  \item Chain-of-Thought (CoT)を促す指示
+                  \item 出力形式の指定
+                \end{itemize}
+        \end{itemize}
+  \item \textbf{出力}
+        \begin{itemize}
+          \item \textbf{対抗文:} 偏見的説明文の誤りを指摘し, 統計データに基づいたより正確でバランスの取れた解釈を提示する説明文.
         \end{itemize}
 \end{itemize}
 
-\subsubsection{出力}
-\begin{itemize}
-  \item \textbf{対抗文:} \\
-        偏見的説明文の誤りを指摘し, 統計データに基づいたより正確でバランスの取れた解釈を提示する説明文.
-\end{itemize}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{具体例}
 
-ここでは, 先行研究\cite{zhang2022}で挙げられている
+ここでは, 先行研究\cite{zhang2022,anonymous2024}で挙げられている
 「Type V: 女性は男性よりも数学の点数が低い (Women have lower math scores than men.)」
 を例に, 提案手法の適用イメージを示す.
 
@@ -200,6 +199,7 @@ LLMに与えるプロンプトは, 主に以下の要素で構成する.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{thebibliography}{99}
   \bibitem{zhang2022}
   K. Zhang, H. Shinden, T. Mutsuro, and E. Suzuki. Judging Instinct Exploitation in Statistical Data Explanations Based on Word Embedding. In \textit{Proc. AIES ’22}, pp. 867–879, 2022.
