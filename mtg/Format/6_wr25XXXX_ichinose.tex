@@ -1,0 +1,80 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,enumerate}
+\usepackage{float}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{diagbox}
+\usepackage{caption}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{colortbl}
+\usepackage[subrefformat=parens]{subcaption}
+\captionsetup{compatibility=false}
+
+\setlength\floatsep{0pt} %dblfloatsep
+
+\newcommand{\argmax}{\mathop{\rm arg~max}\limits}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+
+\newenvironment{hangall}[1]{\hangindent = #1zw\everypar{\hangindent = #1zw}}{}
+
+\setlength{\topmargin}{-25mm}
+\setlength{\textheight}{270mm}
+\setlength{\oddsidemargin}{-10mm}
+\setlength{\textwidth}{170mm}
+
+\bibliographystyle{jplain}
+\begin{document}
+
+\begin{center}
+  \begin {tabular}[h]{|c|c|c|c|c|c|c|c|}
+  \multicolumn{8}{l}{}\\
+  \hline
+  \multicolumn{7}{|c|}{\begin{minipage}{120mm}\vspace{.2zh}TITLE\\[-3.1zh]\begin{center}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        テーマ
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \end{center}\end{minipage}}
+  &\begin{minipage}{20mm}Rep-No.\\[-.5zh]\hspace{3.5em}
+    %%%%%%%%%%%%%%%%%%%%%
+    3
+    %%%%%%%%%%%%%%%%%%%
+  \end{minipage}\\\hline
+  \multicolumn{8}{|c|}{\begin{minipage}{120mm}\vspace{.2zh}AFFILIATION\\[-3.1zh]\begin{center}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        九州大学大学院 システム情報科学府 鈴木研究室
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \end{center}\end{minipage}}
+  \\\hline
+  \multicolumn{3}{|c}{\begin{minipage}{60mm}\vspace{.2zh}AUTHOR\\[-.7zh]
+      \hspace{7em}Ichinose Haruki\end{minipage}}
+  &\multicolumn{2}{|r}{\begin{minipage}{40mm}POSITION\\[-.7zh]\hspace{7.5em}B4\end{minipage}}
+  &\multicolumn{3}{|c|}{\begin{minipage}{60mm}DATE\\[-.7zh]\hspace{9em}
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      2025/
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \end{minipage}}\\\hline
+  \end{tabular}
+\end{center}
+
+\section{セクション1}
+\subsection{サブセクション1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{セクション2}
+\subsection{サブセクション2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{セクション3}
+\subsection{サブセクション3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{99}
+\end{thebibliography}
+\end{document}
