@@ -72,10 +72,10 @@
 
 \vspace{1em}
 
-\section{紹介論文：Towards Knowledge-Grounded Counter Narrative Generation for Hate Speech \cite{chung2021}}
+\section{関連研究：Towards Knowledge-Grounded Counter Narrative Generation for Hate Speech \cite{chung2021}}
 
 本研究は, ヘイトスピーチ（HS）に対抗するカウンターナラティブ（CN）の自動生成において, 従来の生成モデルが抱える具体性・根拠の欠如やハルシネーションといった課題を解決することを目的としている.
-そのため, Wikipediaやニュース記事などの外部知識に基づいて, より情報量が多く説得力のあるCNを生成する, 初の包括的パイプラインを提案した.
+そのために, Wikipediaやニュース記事などの外部知識に基づいて, より情報量が多く説得力のあるCNを生成する, 初の包括的パイプラインを提案した.
 
 \subsection{論文情報}
 \begin{itemize}
@@ -93,8 +93,8 @@
 \begin{itemize}
   \item \textbf{HS対策とCNの現状}
         \begin{itemize}
-          \item 現在, コンテンツ削除やシャドウバンなどが主な対策として行われているが, 言論の自由や多様性の観点から懸念も存在する.
-          \item 事実に基づいた議論や異なる視点による反論として, 非否定的な応答であるCNが注目されている.
+          \item 現在, HS対策としてコンテンツ削除やシャドウバンなどが主に行われているが, 言論の自由や多様性の観点から懸念も存在する.
+          \item 事実に基づいた議論や異なる視点による反論としてCNが注目されている.
         \end{itemize}
 
   \item \textbf{効果的なCNの例}
@@ -117,13 +117,7 @@
 \begin{itemize}
   \item \textbf{データセット}: CONAN
   \item \textbf{特徴}: NGOの専門家によって作成されており, 高品質
-  \item \textbf{データ数}: 6,645組（英語）
-  \item \textbf{内訳}:
-        \begin{itemize}
-          \item オリジナルのHS-CNペア: 1,288組
-          \item パラフレーズ付きペア: 2,576組
-          \item 翻訳ペア（仏・伊語から英語）: 2,781組
-        \end{itemize}
+  \item \textbf{データ数}: 6,645組（パラフレーズして作成したものや仏・伊語からの翻訳を含む）
   \item \textbf{分割}:
         \begin{itemize}
           \item 訓練: 4,069組
@@ -150,12 +144,14 @@
           \item Newsroom（130万件以上のニュース記事）
           \item WikiText-103（28,595件のWikipedia記事）
         \end{itemize}
+        \vspace{0.5em}
 
   \item \textbf{クエリ構築法}: 関連知識を検索するためのキーワード（クエリ）を構築する.
         \begin{enumerate}
           \item \textbf{抽出型（Extraction）}: 訓練時には, HSと正解CNの両方からキーフレーズを抽出し, 検索精度を高める.
           \item \textbf{生成型（Generation）}: テスト時には正解CNが利用できないため, HSを入力として, 反論に有効なキーフレーズを予測・生成するAIモデルを別途用意する.
         \end{enumerate}
+        \vspace{0.5em}
 
   \item \textbf{知識選定}:
         クエリを用いて関連文書を検索後, 各文とクエリの関連度（ROUGE-Lスコア）を計算し, 最も関連性の高い上位5文を知識文（KN）として選定し, 生成モジュールに入力する.
@@ -201,27 +197,25 @@ BLEU-2やROUGE-Lを用いた自動評価と, NGOの専門家による手動評�
   \item 本研究は, 外部知識に基づいたCN生成の初の包括的な手法を提案し, その有効性を実証した.
   \item 外部知識の注入, 特にそのためのキーフレーズ生成が, より具体的で説得力のあるCN生成に寄与することを示した.
   \item 提案手法は未知のトピック（ゼロショット）に対しても一定の効果を発揮し, CN研究に新たな方向性を示した.
-  \item ただし, AIによる自動生成にはリスクも伴うため, 最終的な判断は人間が行う「提案ツール」としての活用を推奨している.
 \end{itemize}
 
 \vspace{1em}
 
 \section{自らの研究の展望}
 
-\subsection{SelectInstinctによる本能特定アルゴリズムの改善}
+\subsection{SelectInstinctによる本能の特定}
 
 \begin{itemize}
   \item サブルーチンPessimismInstincts: より精緻な感情分析の導入
-  \item サブルーチンTrendInstincts: 変化点検出アルゴリズムの導入
 \end{itemize}
 
 \vspace{0.5em}
 
-\subsection{LLMによる対抗文生成アルゴリズムの検討}
+\subsection{LLMによる対抗文生成}
 
 \begin{itemize}
   \item データセットを用いたファインチューニング
-  \item プロンプトエンジニアリングによる最適化
+  \item プロンプトエンジニアリング
   \item マルチモーダルLLMの導入検討
   \item 生成した対抗文の評価方法の検討
 \end{itemize}
